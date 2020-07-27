@@ -1,0 +1,80 @@
+scalar Date
+
+type Query {
+	me: User!
+	getConversation(conversationId: ID!): Conversation!
+	getConversations: [Conversation!]!
+	getMessages(conversationId: ID!): [Message!]!
+}
+
+type Mutation {
+	createUser(data: CreateUserInput!): AuthPayload!
+	login(data: LoginUserInput!): AuthPayload! 
+	createConversation(data: CreateConversationInput!): Conversation!
+	deleteUser: User!
+	updateUser(data: UpdateUserInput!): User!
+	sendMessage(data: SendMessageInput!): Message!
+}
+
+input CreateUserInput {
+	nickname: String!
+	email: String!
+	password: String!
+}
+
+input LoginUserInput {
+	nickname: String!
+	password: String!
+}
+
+input UpdateUserInput {
+	nickname: String
+	password: String
+}
+
+input CreateConversationInput {
+	participant: String!
+}
+
+input SendMessageInput {
+	content: String!
+	conversationId: String!
+}
+
+interface Node {
+	id: ID!
+}
+
+type AuthPayload {
+	token: String!
+	user: User!
+}
+
+type User implements Node {
+	id: ID!
+	email: String!
+	nickname: String!
+	password: String!
+	messages: [Message!]!
+	participants: [Participant!]!
+}
+
+type Conversation implements Node {
+	id: ID!
+	participants: [Participant!]!
+	messages: [Message!]!
+}
+
+type Message implements Node {
+	id: ID!
+	content: String!
+	user: User!
+	conversation: Conversation!
+}
+
+type Participant implements Node {
+	id: ID!
+	user: User!
+	conversation: Conversation!
+	messagesReadAt: Date!
+}

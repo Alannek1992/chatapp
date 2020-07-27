@@ -1,0 +1,34 @@
+type User {
+	id: ID! @id
+	email: String! @unique
+	password: String!
+	nickname: String! @unique
+	messages: [Message!]! @relation(name: "MessageToUser", onDelete: CASCADE)
+	participants: [Participant!]! @relation(name: "ParticipantToUser", onDelete: CASCADE)
+	createdAt: DateTime! @createdAt
+	updatedAt: DateTime! @updatedAt
+}
+
+type Message {
+	id: ID! @id
+	content: String!
+	sender: User! @relation(name: "MessageToUser", onDelete: SET_NULL)
+	conversation: Conversation! @relation(name: "MessageToConversation", onDelete: SET_NULL)
+	createdAt: DateTime! @createdAt
+	updatedAt: DateTime! @updatedAt
+}
+
+type Conversation {
+	id: ID! @id
+	participants: [Participant!]! @relation(name: "ParticipantToConversation", onDelete: CASCADE)
+	messages: [Message!]! @relation(name: "MessageToConversation", onDelete: CASCADE)
+	createdAt: DateTime! @createdAt
+	updatedAt: DateTime! @updatedAt
+}
+
+type Participant {
+	id: ID! @id
+	user: User! @relation(name: "ParticipantToUser", onDelete: SET_NULL)
+	conversation: Conversation! @relation(name: "ParticipantToConversation", onDelete: SET_NULL)
+	messagesReadAt: DateTime
+}

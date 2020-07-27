@@ -1,0 +1,11 @@
+overwrite: true
+schema: "src/schema.graphql"
+generates:
+  src/generated/server/types.ts:
+    config:
+      useIndexSignature: true
+      contextType: MyContext
+    plugins:
+      - add: "import { MyContext } from '../../context';"
+      - typescript
+      - typescript-resolvers
