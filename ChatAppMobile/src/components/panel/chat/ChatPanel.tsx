@@ -5,63 +5,34 @@ import Message from "./message/Message";
 const data = [
   {
     key: "1",
-    content:
-      "Hey you are some awesome, really ! Would be nice to meet each other",
+    content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+    sentByMe: true,
   },
   {
     key: "2",
-    content: "You are number one, really really really rrrrrrrrrrrrrrrr !",
+    content:
+      "Nulla pulvinar eleifend sem. Aenean vel massa quis mauris vehicula lacinia.",
+    sentByMe: false,
   },
   {
     key: "3",
-    content: "You are number one, really really really rrrrrrrrrrrrrrrr !",
+    content: "Mauris dictum facilisis augue. Maecenas lorem.",
+    sentByMe: true,
   },
   {
     key: "4",
-    content: "You are number one, really really really rrrrrrrrrrrrrr !",
-  },
-  {
-    key: "5",
-    content: "You are number one, really really really rrrrrrrrrrrr rr!",
-  },
-  {
-    key: "6",
-    content: "You are number one, really really really rrrrrrrrrrrrrr !",
-  },
-  {
-    key: "7",
-    content: "You are number one, really really really rrrrrrrrrrrrrrr !",
-  },
-  {
-    key: "8",
-    content: "You are number one, really really really rrrrrrrrrrrrrrrr !",
-  },
-  {
-    key: "9",
-    content: "You are number one, really really really rrrrrrrrrrrrrr !",
-  },
-  {
-    key: "10",
-    content: "You are number one, really really really rrrrrrrrrr !",
-  },
-  {
-    key: "11",
-    content: "You are number one, really really really rrrrrrrrrr !",
-  },
-  {
-    key: "12",
-    content: "You are number one, really really really rrrrrrrrrr !",
-  },
-  {
-    key: "13",
-    content: "You are number one, really really really rrrrrrrrrr !",
+    content:
+      "Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus.",
+    sentByMe: false,
   },
 ];
 
 const ChatPanel: React.FC = () => (
   <Styled.ChatPanel
     data={data}
-    renderItem={({ item }) => <Message content={item.content} key={item.key} />}
+    renderItem={({ item }) => (
+      <Message content={item.content} key={item.key} sentByMe={item.sentByMe} />
+    )}
   ></Styled.ChatPanel>
 );
 

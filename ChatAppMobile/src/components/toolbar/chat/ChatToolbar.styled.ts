@@ -13,13 +13,13 @@ const ChatToolbar = styledWithTheme.View`
 `;
 
 const GoBackIcon = styledWithTheme(IconContainer)`
-color: ${(props) => props.theme.text};
+color: ${(props) => props.theme.primaryText};
 justify-content: center;
 padding: 0 20px;
 `;
 
 const ChatUsername = styledWithTheme(Username)`
-color: ${(props) => props.theme.text};
+color: ${(props) => props.theme.primaryText};
 font-size: 18px;
 `;
 
@@ -30,7 +30,7 @@ padding: 0 20px;
 `;
 
 const SettingsIcon = styledWithTheme(IconContainer)`
-color: ${(props) => props.theme.text};
+color: ${(props) => props.theme.primaryText};
 justify-content: center;
 margin-left: auto;
 padding: 0 20px;

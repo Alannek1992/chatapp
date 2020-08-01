@@ -4,7 +4,9 @@ import baseStyled, {
 
 export const tealTheme = {
   primary: "rgba(0, 128, 128, 1)",
-  text: "white",
+  secondary: "white",
+  primaryText: "white",
+  secondaryText: "black",
   background: "rgba(0,0,0,0.9)",
 };
 

@@ -3,8 +3,8 @@ import MainLayout from "../../components/layout/main/MainLayout";
 import ChatPanel from "../../components/panel/chat/ChatPanel";
 import ChatFooter from "../../components/footer/chat/ChatFooter";
 
-const Chat: React.FC = () => (
-  <MainLayout content={<ChatPanel />} footer={<ChatFooter />} />
-);
+const Chat: React.FC = () => {
+  return <MainLayout content={<ChatPanel />} footer={<ChatFooter />} />;
+};
 
 export default Chat;

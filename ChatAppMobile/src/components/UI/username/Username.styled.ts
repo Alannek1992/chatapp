@@ -1,7 +1,7 @@
 import { styledWithTheme } from "../../../styles/AppTheme";
 
 const Username = styledWithTheme.Text`
-    color: ${(props) => props.theme.text};
+    color: ${(props) => props.theme.primaryText};
     font-size: 20px;
 `;
 

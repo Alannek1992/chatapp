@@ -15,9 +15,9 @@ justify-content: space-around;
 const MessageText = styledWithTheme(Input)`
 height: 45px;
 width: 80%;
-background: ${props => props.theme.primary}
+background: ${(props) => props.theme.primary}
 border-radius: 10px;
-color: ${props => props.theme.text}
+color: ${(props) => props.theme.primaryText}
 padding: 3px;
 `;
 
